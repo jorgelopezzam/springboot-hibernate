@@ -14,7 +14,7 @@ public class ProgramaDAOH extends BaseHibernateDAO implements ProgramaDAO {
 
     @Override
     public List<Programa> list() {
-
+                            //this getsession regresa la conexion a la base
         Criteria criteria = this.getSession().createCriteria(Programa.class);
         return criteria.list();
     }

@@ -30,12 +30,15 @@ public class Curso implements Serializable {
     private String codigo;
 
     @Column(name = "fecha_inicio")
-    @Temporal(TemporalType.DATE)
+    @Temporal(TemporalType.DATE) //Es una anotacion para convertir, probar los demas tipos
     private Date fechaInicio;
+    
+//    @Column(name = "id_programa")
+//    private long idPrograma;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_programa")
-    private Programa programa;
+    private Programa programa;  //este nombre debe ser el nombre del MappedBy que està en la clase Programa (Padre)
 
     public Long getId() {
         return id;
@@ -76,5 +79,13 @@ public class Curso implements Serializable {
     public void setPrograma(Programa programa) {
         this.programa = programa;
     }
+
+//    public long getIdPrograma() {
+//        return idPrograma;
+//    }
+//
+//    public void setIdPrograma(long idPrograma) {
+//        this.idPrograma = idPrograma;
+//    }
 
 }
